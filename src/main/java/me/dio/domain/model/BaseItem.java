@@ -13,8 +13,8 @@ public abstract class BaseItem {
     private Long id;
 
     private String icon;
-    private String description;
 
+    private String description;
 
     public Long getId() {
         return id;
@@ -39,4 +39,5 @@ public abstract class BaseItem {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

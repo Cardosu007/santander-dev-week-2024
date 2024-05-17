@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-
 @Entity(name = "tb_account")
 public class Account {
 
@@ -62,4 +61,5 @@ public class Account {
     public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
+
 }

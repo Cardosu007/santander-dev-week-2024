@@ -7,12 +7,10 @@ import java.util.List;
 @Entity(name = "tb_user")
 public class User {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100)
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -26,9 +24,6 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<News> news;
-
-
-
 
     public Long getId() {
         return id;
@@ -77,4 +72,5 @@ public class User {
     public void setNews(List<News> news) {
         this.news = news;
     }
+
 }
