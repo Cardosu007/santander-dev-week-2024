@@ -8,37 +8,44 @@
 classDiagram
     class User {
         -String name
-        -Account account
-        -List<Feature> features
-        -Card card
-        -List<News> news
+        -System system
+        -List<Race> race
+        -List<MagicalSkill> MagicalSkill
+        -List<PhysicalSkill> PhysicalSkill
+        -List<Rank> rank
     }
 
-    class Account {
-        -String number
-        -String agency
-        -float balance
-        -float limit
+    class System {
+        -int idade
+        -float altura
+        -int level
+        -float xp
     }
 
-    class Feature {
-        -String icon
+    class Race {
+        -String race
         -String description
     }
 
-    class Card {
-        -String number
-        -float limit
+    class MagicalSkill {
+        -String habMagicas
+        -String description
     }
 
-    class News {
-        -String newsIcon
-        -String newsDescription
+    class PhysicalSkill {
+        -String habFisicas
+        -String description
     }
 
-    User "1" *-- "1" Account
-    User "1" *-- "N" Feature
-    User "1" *-- "1" Card
-    User "1" *-- "N" News
+    class Rank {
+        -String rank
+        -float xpRank
+    }
+
+    User --> System
+    User --> Race
+    User --> MagicalSkill
+    User --> PhysicalSkill
+    User --> Rank
 
 ```
