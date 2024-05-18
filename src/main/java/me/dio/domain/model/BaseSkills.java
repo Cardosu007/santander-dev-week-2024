@@ -6,15 +6,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class BaseItem {
+public abstract class BaseSkills {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String icon;
+    private String habFisicas;
+
+    private String habMagicas;
 
     private String description;
+
+
+
+
+
 
     public Long getId() {
         return id;
@@ -24,12 +31,20 @@ public abstract class BaseItem {
         this.id = id;
     }
 
-    public String getIcon() {
-        return icon;
+    public String getHabFisicas() {
+        return habFisicas;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setHabFisicas(String habFisicas) {
+        this.habFisicas = habFisicas;
+    }
+
+    public String getHabMagicas() {
+        return habMagicas;
+    }
+
+    public void setHabMagicas(String habMagicas) {
+        this.habMagicas = habMagicas;
     }
 
     public String getDescription() {
@@ -39,5 +54,4 @@ public abstract class BaseItem {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }

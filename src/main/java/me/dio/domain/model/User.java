@@ -4,26 +4,33 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity(name = "tb_user")
-public class User {
+//Nome da tabela
+    @Entity(name = "tb_user")
+    public class User {
 
+//Id do usuário
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//Nome do usuário
     private String name;
 
+//Sistem a onde contém informações do usuário
     @OneToOne(cascade = CascadeType.ALL)
-    private Account account;
+    @JoinColumn(name = "system_id", referencedColumnName = "id")
+    private System system;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Card card;
-
+//Infos das habilidades mágicas
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Feature> features;
+    private List<MagicalSkill> magical_Skill;
 
+//Infos das habilidades físicas
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<News> news;
+    private List<PhysicalSkill> physical_Skills;
+
+
+// Get / Set
 
     public Long getId() {
         return id;
@@ -41,36 +48,28 @@ public class User {
         this.name = name;
     }
 
-    public Account getAccount() {
-        return account;
+    public System getSystem() {
+        return system;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setSystem(System system) {
+        this.system = system;
     }
 
-    public Card getCard() {
-        return card;
+    public List<MagicalSkill> getMagical_Skill() {
+        return magical_Skill;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
+    public void setMagical_Skill(List<MagicalSkill> magical_Skill) {
+        this.magical_Skill = magical_Skill;
     }
 
-    public List<Feature> getFeatures() {
-        return features;
+    public List<PhysicalSkill> getPhysical_Skills() {
+        return physical_Skills;
     }
 
-    public void setFeatures(List<Feature> features) {
-        this.features = features;
+    public void setPhysical_Skills(List<PhysicalSkill> physical_Skills) {
+        this.physical_Skills = physical_Skills;
     }
-
-    public List<News> getNews() {
-        return news;
-    }
-
-    public void setNews(List<News> news) {
-        this.news = news;
-    }
-
+    
 }

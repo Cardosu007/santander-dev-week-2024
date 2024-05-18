@@ -23,8 +23,8 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public User create(User userToCreate) {
-        if(userRepository.existsByAccountNumber(userToCreate.getAccount().getNumber())){
-            throw new IllegalArgumentException("This Account number already exists.");
+        if(userRepository.existsBySystemRegistry(userToCreate.getSystem().getRegistry())){
+            throw new IllegalArgumentException("This Registry number already exists.");
         }
         return userRepository.save(userToCreate);
     }
